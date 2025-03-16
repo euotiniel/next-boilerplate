@@ -53,7 +53,54 @@ Remove the ```.git``` and enable ```.env*``` (file: .gitignore). Done? Yes, you'
 ### Project Structure
 
 ```
-
+├── app
+|   ├── auth
+|   |   ├── login
+|   |   |   |   ├── page.tsx
+|   ├── dashboard
+|   |   |   ├── page.tsx
+|   |   ├── favicon.ico
+|   |   ├── layout.tsx
+|   |   ├── page.tsx
+├── components
+|   ├── layout
+|   |   |   ├── footer.tsx
+|   |   |   ├── header.tsx
+|   |   |   ├── index.tsx
+|   ├── ui
+|   |   |   ├── button.tsx
+|   |   |   ├── dropdown-menu.tsx
+|   |   |   ├── input.tsx
+|   |   ├── theme-provider.tsx
+|   |   ├── toggle.tsx
+├── config
+|   |   ├── seo.config.ts
+├── hooks
+|   |   ├── useAuth.ts
+|   |   ├── useValidationBox.tsx
+├── lib
+|   |   ├── auth.ts
+|   |   ├── constants.ts
+|   |   ├── utils.ts
+├── public
+|   |   ├── file.svg
+|   |   ├── globe.svg
+|   |   ├── next.svg
+|   |   ├── vercel.svg
+|   |   ├── window.svg
+├── styles
+|   |   ├── globals.css
+|   ├── .env.local
+|   ├── .gitignore
+|   ├── components.json
+|   ├── LICENSE
+|   ├── middleware.ts
+|   ├── next.config.ts
+|   ├── package-lock.json
+|   ├── package.json
+|   ├── postcss.config.mjs
+|   ├── README.md
+|   ├── tsconfig.json
 ```
 
 ### Contribution
