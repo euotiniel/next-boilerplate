@@ -1,22 +1,35 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { User2Icon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/useAuth";
-import { useValidation } from "@/hooks/useValidationBox"; 
+import { useValidation } from "@/hooks/useValidationBox";
+import Cookies from "js-cookie";
 
 export default function LoginPage() {
   const { login } = useAuth();
+  const router = useRouter();
   const [user, setUser] = useState("");
-  const { validationResult, validateUsername } = useValidation(); 
+  const { validationResult, validateUsername } = useValidation();
+  const [authToken, setAuthToken] = useState(Cookies.get("authToken") || null);
+
+  useEffect(() => {
+    if (authToken) {
+      router.push("/dashboard");
+    }
+  }, [authToken, router]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const result = validateUsername(user);
+
     if (result.valid) {
-      login("dummy-token");
+      const token = "dummy-token";
+      login(token);
+      setAuthToken(token);
     }
   };
 
@@ -65,7 +78,7 @@ export default function LoginPage() {
               </div>
               {validationResult && !validationResult.valid && (
                 <div className="text-red-500 text-sm mt-1 bg-red-100 dark:bg-red-900 p-2 rounded-md">
-                 {validationResult.errors?.[0] || "Invalid username"}
+                  {validationResult.errors?.[0] || "Invalid username"}
                 </div>
               )}
             </div>
