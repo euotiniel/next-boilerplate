@@ -11,7 +11,7 @@ export default function Header() {
         </h4>
         <ul className="flex items-center gap-6">
             <li><Link href="/dashboard">Dasboard</Link></li>
-            <li><Link href="/about">Source</Link></li>
+            <li><Link href="https://github.com/euotiniel/next-boilerplate">Source</Link></li>
             <li><Link href="#!" className="opacity-20">|</Link></li>
             <li><Link href="/auth/login">Login</Link></li>
         </ul>
